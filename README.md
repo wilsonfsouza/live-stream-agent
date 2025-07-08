@@ -48,6 +48,8 @@ The following tools were used in this project:
 - **[PostgreSQL (database)](https://www.postgresql.org/)**
 - **[PGVector (database vector extension)](https://github.com/pgvector/pgvector)**
 - **[Drizzle (ORM)](https://orm.drizzle.team/)**
+- **[Zod (validation)](https://zod.dev/)**
+- **[Fastify (node.js framework)](https://fastify.dev/)**
 
 > See the file [package.json](https://github.com/wilsonfsouza/live-stream-agent/blob/main/package.json)
 
