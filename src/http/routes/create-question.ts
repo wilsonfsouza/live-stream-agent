@@ -12,9 +12,11 @@ export const createQuestionRoute: FastifyPluginCallbackZod = (app) => {
           roomId: z.string(),
         }),
         body: z.object({
-          question: z.string().min(3, {
-            message: 'Question should be at least 3 characters long.',
-          }),
+          question: z
+            .string()
+            .min(1, 'Question is required')
+            .min(10, 'Question must have at least 10 characters')
+            .max(500, 'Question must have less than 500 characters'),
         }),
       },
     },
