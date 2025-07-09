@@ -1,4 +1,4 @@
-import { count, eq } from 'drizzle-orm'
+import { count, desc, eq } from 'drizzle-orm'
 import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod'
 import { z } from 'zod/v4'
 import { db } from '../../database/connection.ts'
@@ -31,7 +31,7 @@ export const getRoomsRoute: FastifyPluginCallbackZod = (app) => {
           eq(schema.questions.roomId, schema.rooms.id)
         )
         .groupBy(schema.rooms.id)
-        .orderBy(schema.rooms.createdAt)
+        .orderBy(desc(schema.rooms.createdAt))
         .limit(pageSize)
         .offset((page - 1) * pageSize)
 
