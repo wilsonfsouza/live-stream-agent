@@ -6,6 +6,9 @@
 # Get rooms
 # @name getRooms
 GET {{baseUrl}}/rooms
+# GET {{baseUrl}}/rooms?page=1
+# GET {{baseUrl}}/rooms?page=1&pageSize=10
+# GET {{baseUrl}}/rooms?pageSize=20
 
 
 ###
