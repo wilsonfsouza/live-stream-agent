@@ -5,3 +5,15 @@
 
 # Get rooms
 GET {{baseUrl}}/rooms
+
+
+###
+
+# Create room
+POST {{baseUrl}}/rooms
+Content-Type: application/json
+
+{
+  "name": "Test room",
+  "description": "This is a test room"
+}
