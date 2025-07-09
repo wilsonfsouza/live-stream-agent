@@ -9,11 +9,9 @@ export const createRoomRoute: FastifyPluginCallbackZod = (app) => {
     {
       schema: {
         body: z.object({
-          name: z
-            .string()
-            .min(1, {
-              message: 'Room name should be at least 1 character long.',
-            }),
+          name: z.string().min(3, {
+            message: 'Room name should be at least 3 character long.',
+          }),
           description: z.string().optional(),
         }),
       },
