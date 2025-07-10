@@ -15,6 +15,13 @@
       "when": 1752039291335,
       "tag": "0001_organic_wiccan",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1752161552631,
+      "tag": "0002_careless_dorian_gray",
+      "breakpoints": true
     }
   ]
 }
