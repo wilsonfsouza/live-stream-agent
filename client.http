@@ -41,6 +41,12 @@ GET {{baseUrl}}/rooms/{{roomId}}/questions
 POST {{baseUrl}}/rooms/{{roomId}}/questions
 Content-Type: application/json
 
+# Good question
 {
-  "question": "What is the meaning of life?"
+  "question": "What is React.js?"
 }
+
+# Question without answer during local testing
+# {
+#   "question": "What is Vue.js and its difference from Angular.js?"
+# }
