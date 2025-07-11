@@ -28,11 +28,14 @@
 
 Backend application for a live streamming AI agent that uses semantic search to predict and suggest answers in real time based on the audio trasnscription of the live stream.
 
----
+- To see the Web Frontend Application, click here: [WEB PROJECT](https://github.com/wilsonfsouza/live-q-and-a)
 
 ## ⚙️ Features
 
-> In progress
+- ✅ **Rooms**: Create and list rooms.
+- ✅ **Real-time Q&A**: Create and list questions within a room.
+- ✅ **Audio Processing**: Upload audio chunks for transcription and analysis.
+- ✅ **AI Integration**: Utilizes Gemini for semantic search and answer prediction.
 
 ---
 
