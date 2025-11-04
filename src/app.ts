@@ -8,6 +8,7 @@ import {
 } from "fastify-type-provider-zod";
 import { createQuestionRoute } from "./http/routes/create-question.ts";
 import { createRoomRoute } from "./http/routes/create-room.ts";
+import { getRoomAudioCheckRoute } from "./http/routes/get-room-audio-check.ts";
 import { getRoomQuestionsRoute } from "./http/routes/get-room-questions.ts";
 import { getRoomRoute } from "./http/routes/get-room.ts";
 import { getRoomsRoute } from "./http/routes/get-rooms.ts";
@@ -30,3 +31,4 @@ app.register(getRoomQuestionsRoute);
 app.register(createQuestionRoute);
 app.register(uploadAudioRoute);
 app.register(getRoomRoute);
+app.register(getRoomAudioCheckRoute);

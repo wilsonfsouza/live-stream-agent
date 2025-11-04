@@ -4,9 +4,9 @@ import { z } from "zod/v4";
 import { db } from "../../database/connection.ts";
 import { schema } from "../../database/schema/index.ts";
 
-export const getRoomRoute: FastifyPluginCallbackZod = (app) => {
+export const getRoomAudioCheckRoute: FastifyPluginCallbackZod = (app) => {
   app.get(
-    "/rooms/:roomId",
+    "/rooms/:roomId/audio",
     {
       schema: {
         params: z.object({
@@ -17,18 +17,16 @@ export const getRoomRoute: FastifyPluginCallbackZod = (app) => {
     async (request) => {
       const { roomId } = request.params;
 
-      const [result] = await db
+      const audioChunks = await db
         .select({
-          name: schema.rooms.name,
-          description: schema.rooms.description,
+          id: schema.audioChunks.id,
         })
-        .from(schema.rooms)
-        .where(eq(schema.rooms.id, roomId))
+        .from(schema.audioChunks)
+        .where(eq(schema.audioChunks.roomId, roomId))
         .limit(1);
 
       return {
-        name: result.name,
-        description: result.description,
+        hasAudioRecorded: audioChunks.length > 0,
       };
     }
   );
