@@ -10,6 +10,14 @@ GET {{baseUrl}}/rooms
 # GET {{baseUrl}}/rooms?page=1&pageSize=10
 # GET {{baseUrl}}/rooms?pageSize=20
 
+###
+
+# Get room
+# @name getRoom
+# has audio recorded = true
+# GET {{baseUrl}}/rooms/529ae04-037b-49fd-93e4-3207e223461a
+# has audio recorded = false
+GET {{baseUrl}}/rooms/9f83f6d2-a1bc-478a-a8b2-553d44de4d93
 
 ###
 
