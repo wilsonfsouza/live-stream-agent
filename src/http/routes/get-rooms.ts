@@ -1,22 +1,22 @@
-import { count, desc, eq } from 'drizzle-orm'
-import type { FastifyPluginCallbackZod } from 'fastify-type-provider-zod'
-import { z } from 'zod/v4'
-import { db } from '../../database/connection.ts'
-import { schema } from '../../database/schema/index.ts'
+import { count, desc, eq } from "drizzle-orm";
+import type { FastifyPluginCallbackZod } from "fastify-type-provider-zod";
+import { z } from "zod/v4";
+import { db } from "../../database/connection.ts";
+import { schema } from "../../database/schema/index.ts";
 
 export const getRoomsRoute: FastifyPluginCallbackZod = (app) => {
   app.get(
-    '/rooms',
+    "/rooms",
     {
       schema: {
         querystring: z.object({
           page: z.coerce.number().default(1),
-          pageSize: z.coerce.number().default(5),
+          pageSize: z.coerce.number().default(10),
         }),
       },
     },
     async (request) => {
-      const { page, pageSize } = request.query
+      const { page, pageSize } = request.query;
 
       const [results, [{ totalCount }]] = await Promise.all([
         db
@@ -36,7 +36,7 @@ export const getRoomsRoute: FastifyPluginCallbackZod = (app) => {
           .limit(pageSize)
           .offset((page - 1) * pageSize),
         db.select({ totalCount: count() }).from(schema.rooms),
-      ])
+      ]);
 
       return {
         results,
@@ -44,7 +44,7 @@ export const getRoomsRoute: FastifyPluginCallbackZod = (app) => {
           resultsCount: results.length,
           totalCount,
         },
-      }
+      };
     }
-  )
-}
+  );
+};
