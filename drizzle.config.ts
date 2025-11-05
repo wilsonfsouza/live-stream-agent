@@ -10,4 +10,7 @@ export default defineConfig({
     url: env.DATABASE_URL,
     ssl: env.NODE_ENV === 'production' ? 'require' : undefined
   },
+  migrations: {
+    schema: 'public'
+  }
 })
