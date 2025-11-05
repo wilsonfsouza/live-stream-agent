@@ -3,13 +3,18 @@
   "version": "1.0.0",
   "main": "index.js",
   "type": "module",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
-    "start": "node --env-file .env --experimental-strip-types --no-warnings src/server.ts",
+    "local:start": "node --env-file .env build/server.cjs",
     "dev": "node --env-file .env --experimental-strip-types --no-warnings --watch src/server.ts",
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "db:seed": "node --env-file .env --experimental-strip-types --no-warnings src/database/seed.ts"
+    "db:seed": "node --env-file .env --experimental-strip-types --no-warnings src/database/seed.ts",
+    "build": "tsup src --clean --out-dir build --entry 'src/**/*.ts' --entry '!src/**/*.spec.ts' --entry '!src/database/seed.ts'",
+    "start": "node build/server.cjs"
   },
   "keywords": [],
   "author": "",
@@ -20,6 +25,7 @@
     "@types/node": "^24.0.10",
     "drizzle-kit": "^0.31.4",
     "drizzle-seed": "^0.3.1",
+    "tsup": "^8.5.0",
     "typescript": "^5.8.3",
     "ultracite": "5.0.32"
   },
